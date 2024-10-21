@@ -8,8 +8,7 @@ export class DeliveryController {
   }
 
   static async getDeliveryById(req, res) {
-    const { id } = req.params;
-    const { message, data } = await DeliveryService.getDeliveryById(id);
+    const { message, data } = await DeliveryService.getDeliveryById(req.params.id);
     res.status(200).json(BaseHttpResponse.success(message, data));
   }
 

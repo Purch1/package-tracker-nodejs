@@ -1,4 +1,4 @@
-export class PackageResponseDto {
+export class PackageDetailsResponseDto {
   constructor({
     package_id,
     active_delivery_id,
@@ -13,7 +13,6 @@ export class PackageResponseDto {
     to_name,
     to_address,
     to_location,
-    createdAt,
     updatedAt,
   }) {
     this.package_id = package_id;
@@ -29,7 +28,6 @@ export class PackageResponseDto {
     this.to_name = to_name;
     this.to_address = to_address;
     this.to_location = to_location;
-    this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
 
@@ -47,10 +45,9 @@ export class PackageResponseDto {
     to_name,
     to_address,
     to_location,
-    createdAt,
     updatedAt,
   }) {
-    return new PackageResponseDto({
+    return new PackageDetailsResponseDto({
       package_id,
       active_delivery_id,
       description,
@@ -64,7 +61,6 @@ export class PackageResponseDto {
       to_name,
       to_address,
       to_location,
-      createdAt,
       updatedAt,
     });
   }
@@ -73,6 +69,6 @@ export class PackageResponseDto {
    * @param {Array} packages
    */
   static fromMany(packages) {
-    return packages.map((pkg) => PackageResponseDto.from(pkg));
+    return packages.map((pkg) => PackageDetailsResponseDto.from(pkg));
   }
 }

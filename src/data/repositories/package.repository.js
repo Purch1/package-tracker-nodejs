@@ -17,17 +17,17 @@ export class PackageRepository extends BaseRepository {
     }
   }
 
-  static async findById(id) {
-    return Package.findById(id);
+  static async findByPackageId(package_id) {
+    return Package.findOne({ package_id });
   }
 
   static async findOne(filter) {
-    return Package.findOne(filter);
+    return Package.findOne({filter});
   }
 
-  static async updateById(id, entity) {
+  static async updatePackage(package_id, entity) {
     try {
-      return Package.findByIdAndUpdate(id, entity, { new: true });
+      return Package.findOneAndUpdate({ package_id }, entity, { new: true });
     } catch (error) {
       this.handleRepositoryError(error);
     }
@@ -45,7 +45,7 @@ export class PackageRepository extends BaseRepository {
     }
   }
 
-  static async deleteById(id) {
-    return Package.findByIdAndDelete(id);
+  static async deleteByPackageId(package_id) {
+    return Package.findOneAndDelete({ package_id });
   }
 }

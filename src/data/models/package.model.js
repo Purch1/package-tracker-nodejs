@@ -11,6 +11,7 @@ const packageSchema = new Schema(
     },
     active_delivery_id: {
       type: String,
+      ref: 'Delivery',
       default: null,
     },
     description: {

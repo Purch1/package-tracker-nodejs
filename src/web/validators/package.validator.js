@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { latitudeSchema, longitudeSchema, objectIdSchema } from './lib/common-schema.js';
+import { guidSchema, latitudeSchema, longitudeSchema } from './lib/common-schema.js';
 
 export const createPackageValidator = Joi.object({
   body: Joi.object({
@@ -27,7 +27,6 @@ export const createPackageValidator = Joi.object({
 
 export const updatePackageValidator = Joi.object({
   body: Joi.object({
-    active_delivery_id: Joi.string().allow(null),
     description: Joi.string().allow(null),
     weight: Joi.number(),
     width: Joi.number(),
@@ -47,7 +46,7 @@ export const updatePackageValidator = Joi.object({
     })
   }),
   params: Joi.object({
-    id: objectIdSchema.label('Package id').required(),
+    id: guidSchema.label('Package id').required(),
   }),
 });
 
@@ -59,6 +58,6 @@ export const updateStatusValidator = Joi.object({
       .required()
   }),
   params: Joi.object({
-    id: objectIdSchema.label('Package id').required(),
+    id: guidSchema.label('Package id').required(),
   }),
 });

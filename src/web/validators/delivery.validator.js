@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { latitudeSchema, longitudeSchema, objectIdSchema } from './lib/common-schema.js';
+import { guidSchema, latitudeSchema, longitudeSchema, objectIdSchema } from './lib/common-schema.js';
 import { DeliveryStatus, deliveryStatuses } from '../../utils/helpers/deliveries.helpers.js';
 
 export const createDeliveryValidator = Joi.object({
@@ -10,8 +10,8 @@ export const createDeliveryValidator = Joi.object({
       lng: longitudeSchema.required()
     }).required(),
     status: Joi.string()
-      .valid(...deliveryStatuses) 
-      .default(DeliveryStatus.OPEN) 
+      .valid(...deliveryStatuses)
+      .default(DeliveryStatus.OPEN)
   })
 });
 
@@ -21,11 +21,18 @@ export const updateDeliveryValidator = Joi.object({
     location: Joi.object({
       lat: latitudeSchema,
       lng: longitudeSchema
-    }),
-    status: Joi.string()
-      .valid(...deliveryStatuses) 
-  }), 
-  params: Joi.object({
-    id: objectIdSchema.label('Delivery id').required(),
+    })
   }),
+  params: Joi.object({
+    id: guidSchema.label('Delivery id').required()
+  })
+});
+
+export const updateDeliveryStatusValidator = Joi.object({
+  body: Joi.object({
+    status: Joi.string(),
+  }),
+  params: Joi.object({
+    id: guidSchema.label('Delivery id').required()
+  })
 });

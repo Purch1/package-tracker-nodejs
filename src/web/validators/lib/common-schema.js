@@ -30,6 +30,10 @@ export const objectIdSchema = Joi.alternatives(
   })
 );
 
+export const guidSchema = Joi.alternatives(
+  Joi.string().guid({ version: ['uuidv4'] }).required()
+);
+
 export const passwordSchema = joiPassword
   .string()
   .label('Password')

@@ -17,17 +17,17 @@ export class DeliveryRepository extends BaseRepository {
     }
   }
 
-  static async findById(id) {
-    return Delivery.findById(id);
+  static async findByDeliveryId(deliveryId) {
+    return Delivery.findOne({ delivery_id: deliveryId });
   }
 
   static async findOne(filter) {
     return Delivery.findOne(filter);
   }
 
-  static async updateById(id, entity) {
+  static async updateByDeliveryId(deliveryId, entity) {
     try {
-      return Delivery.findByIdAndUpdate(id, entity, { new: true });
+      return Delivery.findOneAndUpdate({ delivery_id: deliveryId }, entity, { new: true });
     } catch (error) {
       this.handleRepositoryError(error);
     }
@@ -45,7 +45,7 @@ export class DeliveryRepository extends BaseRepository {
     }
   }
 
-  static async deleteById(id) {
-    return Delivery.findByIdAndDelete(id);
+  static async deleteByDeliveryId(deliveryId) {
+    return Delivery.findOneAndDelete({ delivery_id: deliveryId });
   }
 }
