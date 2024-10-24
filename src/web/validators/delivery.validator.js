@@ -30,7 +30,7 @@ export const updateDeliveryValidator = Joi.object({
 
 export const updateDeliveryStatusValidator = Joi.object({
   body: Joi.object({
-    status: Joi.string(),
+    status: Joi.string()
   }),
   params: Joi.object({
     id: guidSchema.label('Delivery id').required()

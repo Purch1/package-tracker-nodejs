@@ -8,9 +8,7 @@
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
     "lint": "eslint \"src/web/**/*.js\"",
-    "lint:fix": "eslint '**/*.js' --fix",
-    "format": "prettier --write '**/*.{js,json,md}'",
-    "format:check": "prettier --check '**/*.{js,json,md}'"
+    "lint:fix": "eslint '**/*.js' --fix"
   },
   "keywords": [],
   "author": "",

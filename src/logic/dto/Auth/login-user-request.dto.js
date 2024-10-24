@@ -1,13 +1,13 @@
 
 export class LoginRequestDto {
-  constructor({ username, password }) {
-    this.username = username;
+  constructor({ email, password }) {
+    this.email = email;
     this.password = password;
   }
 
   static from(data) {
     return new LoginRequestDto({
-      username: data.username,
+      email: data.email,
       password: data.password,
     });
   }

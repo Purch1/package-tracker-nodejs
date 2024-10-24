@@ -43,7 +43,7 @@ export class DeliveryService {
 
     // Update the corresponding package with the active delivery ID
     const packageId = delivery.package_id;
-    await PackageRepository.updateByPackage(packageId, {
+    await PackageRepository.updatePackage(packageId, {
       active_delivery_id: delivery.delivery_id
     });
 
