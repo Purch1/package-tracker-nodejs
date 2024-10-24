@@ -31,7 +31,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/download/) (v14 or later)
+- [Node.js](https://nodejs.org/en/download/) (v17 or later)
 - [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
 
 ### Installation
